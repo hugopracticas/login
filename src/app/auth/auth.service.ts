@@ -22,6 +22,11 @@ interface SignedinResponse {
   username: string;
 }
 
+interface SigninCredentials {
+  username: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -83,6 +88,18 @@ export class AuthService {
           this.signedin$.next(false);
         })
       )
+  }
+
+  /**
+   * Este metodo nos sirve para validar el username y password
+   */
+  signin( credentials: SigninCredentials){
+      return this.http.post(`${this.rootUrl}/auth/signin`, credentials)
+        .pipe(
+          tap(() => {
+            this.signedin$.next(true);
+          })
+        )
   }
 
 }
