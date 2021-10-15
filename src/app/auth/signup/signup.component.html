@@ -1,0 +1,41 @@
+<h3>Create Acount</h3>
+
+<form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
+    <!-- <div class="field">
+        <label>Username</label>
+        <input formControlName="username"/>
+    </div> -->
+
+    <app-input inputType="text" label="Username" [control]="authForm.get('username')"></app-input>
+    <!-- {{ authForm.get('username').errors | json }} -->
+    <app-input inputType="password" label="Password" [control]="authForm.get('password')"></app-input>
+    <app-input inputType="password" label="Password Confirmation" [control]="authForm.get('passwordConfirmation')"></app-input>
+    <!-- {{ authForm.get('username').errors | json}} -->
+    
+    <div *ngIf="authForm.get('password').touched && 
+                authForm.get('passwordConfirmation').touched &&
+                authForm.errors"
+
+        class="ui red basic label">
+        
+        <p *ngIf="authForm.errors.passwordDontMatch">
+            El password y la confirmacion de password deben de coincidir
+        </p>
+
+        <p *ngIf ="authForm.errors.noConnection">
+            No se detecto una coneccion a internet, fallo el registro
+        </p>
+
+        <p *ngIf ="authForm.errors.unknownError">
+            Fallo el registro!
+        </p>
+    </div>
+    
+    <div>
+        <button class="ui submit buttom primary">
+            Submit
+        </button>
+        <!-- {{ authForm.errors | json}} -->
+    </div>
+    
+</form>
