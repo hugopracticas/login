@@ -3,11 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { InboxRoutingModule } from './inbox-routing.module';
 import { HomeComponent } from './home/home.component';
+import { EmailCreatedComponent } from './email-created/email-created.component';
+import { EmailReplyComponent } from './email-reply/email-reply.component';
+import { EmailIndexComponent } from './email-index/email-index.component';
+import { EmailShowComponent } from './email-show/email-show.component';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    EmailCreatedComponent,
+    EmailReplyComponent,
+    EmailIndexComponent,
+    EmailShowComponent
   ],
   imports: [
     CommonModule,
