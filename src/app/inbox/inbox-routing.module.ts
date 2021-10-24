@@ -10,9 +10,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent,
     children: [
       {
-        path: 'not-found', component: NotFoundComponent
+         path: 'not-found', component: NotFoundComponent
       },
-      { path: ':id', component: EmailShowComponent,
+      { path: ':id',
+        component: EmailShowComponent,
         resolve: {
           email: EmailResolverService
         }
